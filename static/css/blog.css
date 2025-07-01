@@ -63,10 +63,14 @@
     margin: 0 auto;
     padding: 3rem 2rem;
     margin-top: 120px;
+    min-height: calc(100vh - 120px);
+    overflow: visible;
 }
 
 .blog-container {
     width: 100%;
+    overflow: visible;
+    height: auto;
 }
 
 .blog-title {
@@ -146,6 +150,27 @@
     text-transform: lowercase;
 }
 
+.post-status {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    text-transform: lowercase;
+    margin-left: 0.5rem;
+}
+
+.post-status-complete {
+    color: #4caf50;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.post-status-draft {
+    color: #ff9800;
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .blog-nav {
@@ -201,6 +226,11 @@
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 3rem;
+    background: transparent;
+    color: #eceff1;
+    overflow: visible;
+    height: auto;
+    max-height: none;
 }
 
 .blog-post-content h1,
@@ -237,6 +267,14 @@
     margin: 1.5rem 0;
     padding-left: 2rem;
     color: #eceff1;
+    list-style: disc;
+    list-style-position: outside;
+}
+
+.blog-post-content ul li,
+.blog-post-content ol li {
+    color: #eceff1;
+    margin-bottom: 0.5rem;
 }
 
 .blog-post-content li {
@@ -346,9 +384,32 @@
     padding-bottom: 0.5rem;
 }
 
+.about-content-dark h2 a {
+    color: #eceff1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-content-dark h2 a:hover {
+    color: #20b2aa;
+}
+
 .about-content-dark p {
     color: #eceff1;
     margin-bottom: 1.5rem;
+}
+
+.about-content-dark p a {
+    color: #20b2aa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-content-dark p a:hover {
+    color: #eceff1;
+    text-decoration: underline;
+    text-decoration-color: #707070;
+    text-underline-offset: 3px;
 }
 
 .skills-grid {
@@ -461,5 +522,115 @@
     
     .contact-methods {
         gap: 1.5rem;
+    }
+}
+
+/* Experience Page Styles */
+.experience-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.experience-item {
+    border-bottom: 1px solid #415a77;
+    padding-bottom: 2rem;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.experience-header {
+    margin-bottom: 1rem;
+}
+
+.job-title {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: #eceff1;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.company-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.company-name {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1rem;
+    color: #20b2aa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.company-name:hover {
+    color: #eceff1;
+    text-decoration: underline;
+    text-decoration-color: #707070;
+    text-underline-offset: 3px;
+}
+
+.date-range {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.9rem;
+    color: #707070;
+}
+
+.experience-details p {
+    color: #eceff1;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-item {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.8rem;
+    background: rgba(32, 178, 170, 0.1);
+    color: #20b2aa;
+    padding: 0.3rem 0.6rem;
+    border-radius: 10px;
+    border: 1px solid rgba(32, 178, 170, 0.2);
+}
+
+/* Responsive adjustments for experience page */
+@media (max-width: 768px) {
+    .experience-timeline {
+        gap: 2rem;
+    }
+    
+    .job-title {
+        font-size: 1.2rem;
+    }
+    
+    .company-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .technologies {
+        gap: 0.4rem;
+    }
+    
+    .tech-item {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
     }
 }

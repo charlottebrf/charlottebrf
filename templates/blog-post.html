@@ -13,10 +13,11 @@
 <body class="blog-body">
     <header class="blog-header">
         <nav class="blog-nav">
-            <a href="/" class="blog-logo">charlotte</a>
+            <a href="/" class="blog-logo">charlottebrf</a>
             <div class="blog-nav-links">
                 <a href="/">home</a>
                 <a href="/blog" class="active">blog</a>
+                <a href="/experience">experience</a>
                 <a href="/contact">contact</a>
             </div>
         </nav>
@@ -29,11 +30,12 @@
                 <h1 class="blog-post-title">{{.Post.Title}}</h1>
                 <div class="post-meta">
                     <span class="post-category">{{.Post.Category}}</span>
+                    <span class="post-status post-status-{{.Post.Status}}">{{.Post.Status}}</span>
                 </div>
             </div>
             
             <article class="blog-post-content">
-                {{.Post.Content | html}}
+                {{.Post.Content}}
             </article>
             
             <div class="blog-post-navigation">

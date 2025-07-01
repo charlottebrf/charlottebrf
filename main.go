@@ -20,10 +20,11 @@ type Server struct {
 type BlogPost struct {
 	Title       string
 	Slug        string
-	Content     string
+	Content     template.HTML
 	Date        time.Time
 	Category    string
 	Excerpt     string
+	Status      string
 }
 
 type BlogData struct {
@@ -60,26 +61,45 @@ func (s *Server) loadBlogPosts() ([]BlogPost, error) {
 				return err
 			}
 			
-			// Parse markdown content
-			htmlContent := parser.MarkdownToHTML(content)
-			
 			// Extract metadata from content
 			lines := strings.Split(string(content), "\n")
-			var title, category, dateStr string
+			var title, category, dateStr, status string
 			var contentStart int
 			
 			for i, line := range lines {
 				if strings.HasPrefix(line, "# ") {
 					title = strings.TrimPrefix(line, "# ")
-					contentStart = i + 1
 				} else if strings.Contains(line, "*Published:") {
 					dateStr = strings.TrimSpace(strings.Split(line, ":")[1])
 					dateStr = strings.Trim(dateStr, "*")
 				} else if strings.Contains(line, "*Category:") {
 					category = strings.TrimSpace(strings.Split(line, ":")[1])
 					category = strings.Trim(category, "*")
+				} else if strings.Contains(line, "*Status:") {
+					status = strings.TrimSpace(strings.Split(line, ":")[1])
+					status = strings.Trim(status, "*")
+				} else if strings.TrimSpace(line) != "" && !strings.HasPrefix(line, "*") && !strings.HasPrefix(line, "# ") && contentStart == 0 {
+					// First non-metadata line marks the start of content
+					contentStart = i
 				}
 			}
+			
+			// Default status to "complete" if not specified
+			if status == "" {
+				status = "complete"
+			}
+			
+			// Create content without metadata for markdown parsing
+			var contentLines []string
+			if contentStart > 0 {
+				contentLines = lines[contentStart:]
+			} else {
+				contentLines = lines
+			}
+			markdownContent := strings.Join(contentLines, "\n")
+			
+			// Parse markdown content
+			htmlContent := parser.MarkdownToHTML([]byte(markdownContent))
 			
 			// Parse date
 			date, err := time.Parse("January 2, 2006", strings.TrimSpace(dateStr))
@@ -92,22 +112,18 @@ func (s *Server) loadBlogPosts() ([]BlogPost, error) {
 			
 			// Extract excerpt (first paragraph)
 			excerpt := ""
-			if contentStart < len(lines) {
-				for i := contentStart; i < len(lines); i++ {
-					if strings.TrimSpace(lines[i]) != "" && !strings.HasPrefix(lines[i], "*") {
-						excerpt = strings.TrimSpace(lines[i])
-						break
-					}
-				}
+			if contentStart > 0 && contentStart < len(lines) {
+				excerpt = strings.TrimSpace(lines[contentStart])
 			}
 			
 			post := BlogPost{
 				Title:    title,
 				Slug:     slug,
-				Content:  string(htmlContent),
+				Content:  template.HTML(htmlContent),
 				Date:     date,
 				Category: category,
 				Excerpt:  excerpt,
+				Status:   status,
 			}
 			
 			posts = append(posts, post)
@@ -180,6 +196,15 @@ func (s *Server) blogPostHandler(w http.ResponseWriter, r *http.Request) {
 	s.templates.ExecuteTemplate(w, "blog-post.html", data)
 }
 
+func (s *Server) experienceHandler(w http.ResponseWriter, r *http.Request) {
+	data := struct {
+		Title string
+	}{
+		Title: "Experience - Charlotte's Portfolio",
+	}
+	s.templates.ExecuteTemplate(w, "experience.html", data)
+}
+
 func (s *Server) contactHandler(w http.ResponseWriter, r *http.Request) {
 	data := struct {
 		Title string
@@ -198,6 +223,7 @@ func main() {
 	http.HandleFunc("/blog/", server.blogPostHandler)
 	http.HandleFunc("/blog", server.blogHandler)
 	http.HandleFunc("/", server.homeHandler)
+	http.HandleFunc("/experience", server.experienceHandler)
 	http.HandleFunc("/contact", server.contactHandler)
 
 	log.Println("Server starting on :8080")
