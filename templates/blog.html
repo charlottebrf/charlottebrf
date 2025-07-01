@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="/" class="logo">Charlotte</a>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+<section class="page-header">
+    <div class="container">
+        <h1>Blog</h1>
+        <p>Thoughts on software development, technology, and more</p>
+    </div>
+</section>
+
+<section class="blog-content">
+    <div class="container">
+        <div class="blog-posts">
+            {{range .Posts}}
+            <article class="blog-post">
+                <div class="post-meta">
+                    <span class="post-date">{{.Date.Format "January 2, 2006"}}</span>
+                    <span class="post-category">{{.Category}}</span>
+                </div>
+                <h2><a href="/blog/{{.Slug}}">{{.Title}}</a></h2>
+                <p>{{.Excerpt}}</p>
+                <a href="/blog/{{.Slug}}" class="read-more">Read More →</a>
+            </article>
+            {{end}}
+        </div>
+
+        <div class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3>Categories</h3>
+                <ul class="category-list">
+                    <li><a href="/blog/category/go">Go</a> (1)</li>
+                    <li><a href="/blog/category/web-development">Web Development</a> (1)</li>
+                    <li><a href="/blog/category/career">Career</a> (1)</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Recent Posts</h3>
+                <ul class="recent-posts">
+                    {{range $index, $post := .Posts}}
+                        {{if lt $index 3}}
+                        <li><a href="/blog/{{$post.Slug}}">{{$post.Title}}</a></li>
+                        {{end}}
+                    {{end}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Charlotte Fereday. All rights reserved.</p>
+    </footer>
+</body>
+</html>

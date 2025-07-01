@@ -1,0 +1,75 @@
+{{define "home-content"}}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Hello, I'm Charlotte</h1>
+        <p>Software Developer & Creative Problem Solver</p>
+        <div class="hero-buttons">
+            <a href="/projects" class="btn btn-primary">View My Work</a>
+            <a href="/contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </div>
+</section>
+
+<section class="about-preview">
+    <div class="container">
+        <h2>About Me</h2>
+        <p>I'm a passionate software developer with experience in building web applications and solving complex problems. I love creating clean, efficient code and learning new technologies.</p>
+        <a href="/about" class="btn btn-outline">Learn More</a>
+    </div>
+</section>
+
+<section class="projects-preview">
+    <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>Description of your first project.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>Description of your second project.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>Description of your third project.</p>
+            </div>
+        </div>
+        <a href="/projects" class="btn btn-outline">View All Projects</a>
+    </div>
+</section>
+{{end}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="/" class="logo">Charlotte</a>
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {{template "home-content" .}}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Charlotte Fereday. All rights reserved.</p>
+    </footer>
+</body>
+</html>
