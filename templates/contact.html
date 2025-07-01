@@ -5,83 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{.Title}}</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <a href="/" class="logo">Charlotte</a>
-                <ul class="nav-menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/projects">Projects</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
+<body class="blog-body">
+    <header class="blog-header">
+        <nav class="blog-nav">
+            <a href="/" class="blog-logo">charlotte</a>
+            <div class="blog-nav-links">
+                <a href="/">home</a>
+                <a href="/blog">blog</a>
+                <a href="/contact" class="active">contact</a>
             </div>
         </nav>
     </header>
 
-    <main>
-<section class="page-header">
-    <div class="container">
-        <h1>Get In Touch</h1>
-        <p>Let's connect and discuss opportunities</p>
-    </div>
-</section>
-
-<section class="contact-content">
-    <div class="container">
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h2>Contact Information</h2>
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p><a href="mailto:charlotte@example.com">charlotte@example.com</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>LinkedIn</h3>
-                    <p><a href="https://linkedin.com/in/charlotte-fereday" target="_blank">linkedin.com/in/charlotte-fereday</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>GitHub</h3>
-                    <p><a href="https://github.com/charlotte-fereday" target="_blank">github.com/charlotte-fereday</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>Location</h3>
-                    <p>Available for remote work worldwide</p>
-                </div>
-            </div>
-
-            <div class="contact-form">
-                <h2>Send a Message</h2>
-                <form action="/contact" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+    <main class="blog-main">
+        <div class="blog-container">
+            <h1 class="blog-title">contact</h1>
+            
+            <div class="contact-content-dark">
+                <p>Let's connect and discuss opportunities. I'm always interested in hearing about new projects and collaborations.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <h3>email</h3>
+                        <a href="mailto:charlotte@example.com">charlotte@example.com</a>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    
+                    <div class="contact-method">
+                        <h3>linkedin</h3>
+                        <a href="https://linkedin.com/in/charlotte-fereday" target="_blank">linkedin.com/in/charlotte-fereday</a>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
+                    
+                    <div class="contact-method">
+                        <h3>github</h3>
+                        <a href="https://github.com/charlotte-fereday" target="_blank">github.com/charlotte-fereday</a>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <div class="contact-method">
+                        <h3>location</h3>
+                        <span>available for remote work worldwide</span>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
     </main>
-
-    <footer>
-        <p>&copy; 2025 Charlotte Fereday. All rights reserved.</p>
-    </footer>
 </body>
 </html>

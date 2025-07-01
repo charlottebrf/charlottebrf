@@ -261,6 +261,11 @@ main {
     align-items: start;
 }
 
+.project-info {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .project-image img {
     width: 100%;
     border-radius: 10px;

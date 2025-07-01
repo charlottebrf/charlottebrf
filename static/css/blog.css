@@ -1,0 +1,458 @@
+/* Blog-specific dark theme styling inspired by seankhliao.com */
+
+.blog-body {
+    background: #000000;
+    color: #eceff1;
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.blog-header {
+    padding: 2rem 0;
+    border-bottom: 1px solid #333;
+}
+
+.blog-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-logo {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #20b2aa;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+.blog-nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.blog-nav-links a {
+    font-family: 'Inconsolata', monospace;
+    color: #888888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.blog-nav-links a:hover,
+.blog-nav-links a.active {
+    color: #20b2aa;
+}
+
+.blog-main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.blog-container {
+    width: 100%;
+}
+
+.blog-title {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #eceff1;
+    margin: 0 0 3rem 0;
+    text-transform: lowercase;
+    border-bottom: 2px solid #333;
+    padding-bottom: 1rem;
+}
+
+.blog-posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-post-item {
+    border-bottom: 1px solid #222;
+    padding-bottom: 2rem;
+}
+
+.blog-post-item:last-child {
+    border-bottom: none;
+}
+
+.post-date {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.85rem;
+    color: #707070;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.post-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.post-title a {
+    color: #eceff1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: #20b2aa;
+    text-decoration: underline;
+    text-decoration-color: #707070;
+    text-underline-offset: 4px;
+}
+
+.post-excerpt {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post-category {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.8rem;
+    color: #20b2aa;
+    background: rgba(32, 178, 170, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    text-transform: lowercase;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .blog-nav {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .blog-nav-links {
+        gap: 1rem;
+    }
+    
+    .blog-main {
+        padding: 2rem 1rem;
+    }
+    
+    .blog-title {
+        font-size: 2rem;
+    }
+    
+    .post-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .blog-title {
+        font-size: 1.75rem;
+    }
+}
+
+/* Blog Post Page Styles */
+.blog-post-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2rem;
+}
+
+.blog-post-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #eceff1;
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+.blog-post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4 {
+    color: #eceff1;
+    margin: 2rem 0 1rem 0;
+    font-family: 'Lora', serif;
+}
+
+.blog-post-content h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.blog-post-content h2 {
+    font-size: 1.6rem;
+    margin-top: 3rem;
+}
+
+.blog-post-content h3 {
+    font-size: 1.3rem;
+}
+
+.blog-post-content p {
+    margin-bottom: 1.5rem;
+    color: #eceff1;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+    color: #eceff1;
+}
+
+.blog-post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.blog-post-content code {
+    font-family: 'Inconsolata', monospace;
+    background: #1a1a1a;
+    color: #20b2aa;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.blog-post-content pre {
+    font-family: 'Inconsolata', monospace;
+    background: #1a1a1a;
+    color: #eceff1;
+    padding: 1.5rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border: 1px solid #333;
+}
+
+.blog-post-content pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+.blog-post-content blockquote {
+    border-left: 4px solid #20b2aa;
+    background: #1a1a1a;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #b0b0b0;
+}
+
+.blog-post-content a {
+    color: #20b2aa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-post-content a:hover {
+    text-decoration: underline;
+    text-decoration-color: #707070;
+    text-underline-offset: 3px;
+}
+
+.blog-post-content strong {
+    color: #eceff1;
+    font-weight: 600;
+}
+
+.blog-post-navigation {
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+.back-to-blog {
+    font-family: 'Inconsolata', monospace;
+    color: #20b2aa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.back-to-blog:hover {
+    color: #eceff1;
+}
+
+/* Responsive styles for blog post */
+@media (max-width: 768px) {
+    .blog-post-title {
+        font-size: 2rem;
+    }
+    
+    .blog-post-content {
+        font-size: 1rem;
+    }
+    
+    .blog-post-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .blog-post-content h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Home Page (About) Styles */
+.about-content-dark {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-content-dark h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    color: #eceff1;
+    margin: 2.5rem 0 1rem 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.about-content-dark p {
+    color: #eceff1;
+    margin-bottom: 1.5rem;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0 2.5rem 0;
+}
+
+.skill-tag {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.85rem;
+    background: rgba(32, 178, 170, 0.15);
+    color: #20b2aa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(32, 178, 170, 0.3);
+}
+
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.contact-links a {
+    font-family: 'Inconsolata', monospace;
+    color: #20b2aa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #eceff1;
+    text-decoration: underline;
+    text-decoration-color: #707070;
+    text-underline-offset: 3px;
+}
+
+/* Contact Page Styles */
+.contact-content-dark {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.contact-content-dark p {
+    color: #eceff1;
+    margin-bottom: 2.5rem;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-method {
+    border-bottom: 1px solid #333;
+    padding-bottom: 1.5rem;
+}
+
+.contact-method:last-child {
+    border-bottom: none;
+}
+
+.contact-method h3 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.9rem;
+    color: #707070;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+    font-weight: 400;
+}
+
+.contact-method a {
+    color: #20b2aa;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-method a:hover {
+    color: #eceff1;
+    text-decoration: underline;
+    text-decoration-color: #707070;
+    text-underline-offset: 3px;
+}
+
+.contact-method span {
+    color: #eceff1;
+    font-size: 1rem;
+}
+
+/* Responsive adjustments for new pages */
+@media (max-width: 768px) {
+    .skills-grid {
+        gap: 0.5rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .contact-methods {
+        gap: 1.5rem;
+    }
+}

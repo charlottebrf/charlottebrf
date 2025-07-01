@@ -41,26 +41,9 @@ func (s *Server) homeHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		Title: "Charlotte's Portfolio",
 	}
-	s.templates.ExecuteTemplate(w, "home.html", data)
-}
-
-func (s *Server) aboutHandler(w http.ResponseWriter, r *http.Request) {
-	data := struct {
-		Title string
-	}{
-		Title: "About - Charlotte's Portfolio",
-	}
 	s.templates.ExecuteTemplate(w, "about.html", data)
 }
 
-func (s *Server) projectsHandler(w http.ResponseWriter, r *http.Request) {
-	data := struct {
-		Title string
-	}{
-		Title: "Projects - Charlotte's Portfolio",
-	}
-	s.templates.ExecuteTemplate(w, "projects.html", data)
-}
 
 func (s *Server) loadBlogPosts() ([]BlogPost, error) {
 	var posts []BlogPost
@@ -215,8 +198,6 @@ func main() {
 	http.HandleFunc("/blog/", server.blogPostHandler)
 	http.HandleFunc("/blog", server.blogHandler)
 	http.HandleFunc("/", server.homeHandler)
-	http.HandleFunc("/about", server.aboutHandler)
-	http.HandleFunc("/projects", server.projectsHandler)
 	http.HandleFunc("/contact", server.contactHandler)
 
 	log.Println("Server starting on :8080")
