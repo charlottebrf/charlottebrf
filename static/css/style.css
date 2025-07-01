@@ -161,6 +161,10 @@ main {
     text-align: center;
 }
 
+.projects-preview {
+    text-align: center;
+}
+
 /* Projects Grid */
 .projects-grid {
     display: grid;
