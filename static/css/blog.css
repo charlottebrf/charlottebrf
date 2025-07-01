@@ -13,6 +13,12 @@
 .blog-header {
     padding: 2rem 0;
     border-bottom: 1px solid #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    z-index: 1000;
 }
 
 .blog-nav {
@@ -56,6 +62,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 3rem 2rem;
+    margin-top: 120px;
 }
 
 .blog-container {
