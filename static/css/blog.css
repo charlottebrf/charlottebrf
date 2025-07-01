@@ -1,7 +1,7 @@
 /* Blog-specific dark theme styling inspired by seankhliao.com */
 
 .blog-body {
-    background: #000000;
+    background: #0d1b2a;
     color: #eceff1;
     font-family: 'Lora', serif;
     margin: 0;
@@ -12,12 +12,12 @@
 
 .blog-header {
     padding: 2rem 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #415a77;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: #000000;
+    background: #0d1b2a;
     z-index: 1000;
 }
 
@@ -185,7 +185,7 @@
 /* Blog Post Page Styles */
 .blog-post-header {
     margin-bottom: 3rem;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #415a77;
     padding-bottom: 2rem;
 }
 
@@ -245,7 +245,7 @@
 
 .blog-post-content code {
     font-family: 'Inconsolata', monospace;
-    background: #1a1a1a;
+    background: #152532;
     color: #20b2aa;
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
@@ -254,13 +254,13 @@
 
 .blog-post-content pre {
     font-family: 'Inconsolata', monospace;
-    background: #1a1a1a;
+    background: #152532;
     color: #eceff1;
     padding: 1.5rem;
     border-radius: 6px;
     overflow-x: auto;
     margin: 2rem 0;
-    border: 1px solid #333;
+    border: 1px solid #415a77;
 }
 
 .blog-post-content pre code {
@@ -271,7 +271,7 @@
 
 .blog-post-content blockquote {
     border-left: 4px solid #20b2aa;
-    background: #1a1a1a;
+    background: #152532;
     padding: 1rem 1.5rem;
     margin: 2rem 0;
     font-style: italic;
@@ -297,7 +297,7 @@
 
 .blog-post-navigation {
     padding-top: 2rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid #415a77;
 }
 
 .back-to-blog {
@@ -342,7 +342,7 @@
     font-size: 1.5rem;
     color: #eceff1;
     margin: 2.5rem 0 1rem 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #415a77;
     padding-bottom: 0.5rem;
 }
 
@@ -407,7 +407,7 @@
 }
 
 .contact-method {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #415a77;
     padding-bottom: 1.5rem;
 }
 
