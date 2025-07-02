@@ -4,24 +4,33 @@
 *Category: AI, TDD,*  
 *Status: draft*
 
-So what’s a good workflow to do TDD when you simultaneously believe that software engineers have value and that you’d like to have a productivity value add of using AI. I think it is important for the engineer to write the first test which provides a model for the to follow and copy. Writing a TDD test then I would still want to do the groundwork of considering:
+So what’s a good workflow to practice TDD when you simultaneously that the practise of TDD is useful for the engineer, and at the same time you’d like to have the productivity boost of using AI.
+My take on this is that I think that it's important for me to write at least the first test to provide a model for the AI to follow and copy. The reason for this is that I still want to do the groundwork thinking of what scenarios I want to test and what their intent is.
 
-- What scenarios to test
-- Writing the first test myself
-- Getting the AI to write the scenarios you’ve written
-- I craft the intent of the tests
+Here are three approaches I have seen to writing tests using AI:
 
-Some of how you use AI with TDD depends on what you believe the value of a test is in a codebase. My theory is that using AI tools makes doing TDD more difficult or seemingly pointless, especially if the engineer wasn’t already practising TDD.  All of these approaches assume that the engineer will be working with
+### Use AI to write the code and then write the tests
+Instead of using the test to figure out what code should be written, the engineer starts writing the production code itself and this process is made all the faster with AI. It can be very convenient to write tests in this way with AI, because once the code already exists you can just prompt the AI tool to write the tests based on that code.
+In this case the engineer probably wasn’t already practicing TDD, which suggests they don't get much value from the process of deciding what to write in the tests before you implementing the code. With the advent of AI, this person can now move even more quickly. The danger that I see here is that AI tools are very confident in what they suggest. They can very confidently write all the test scenarios after writing the code and have the veneer of providing full test coverage, when in fact the test scenarios are subtly wrong.
+It's also difficult to definitely say that the code works as it should because it never started with a failing test in the first place.
 
-Some examples of what I’ve seen in the wild:
+### Use AI to write the tests and then the code
+The engineer usually practices TDD and sees it's value, but wants to use AI to move more quickly. They get AI to write the first test or the whole suite of tests and then implement the code.
+The AI writes some convincing test scenarios and the production code is based off of these. The challenge that I've found with this is that it's more difficult to prompt the AI to write the test I want when the code doesn't yet exist.
+Whilst the tests are reviewed by the engineer, it removes the thinking part involved in writing the test. I feel this process results in a shallower understanding of the code and the creativity involved in figuring out the publicly testable interface.
 
-- Working in haste. Whilst figuring out what code to write, they actually dive in and write the code. They then write the tests, and given the code already exists they use an AI tool to write the tests. In this case the engineer already wasn’t doing TDD, so doesn’t value the purpose of TDD as a core thinking part of the process of writing code. With the advent of AI, this person can now move even more quickly. Writing the tests are a bit of an arbitrary exercise. They need to be added in order for the PR to be approved, and an after-thought of the code.
-- Write the tests first, then write the code all using AI.  The challenge with this approach is that the tool doesn’t have ready written code as a source for it to use to write the tests.  How do you prompt it to think about the scenarios that you need to test. How do you get it to understand the intent. Think about the happy path scenario and then sad path scenarios you want to test. Sketch out how the world should be in your test file first. Even without the code existing, this is the important and imaginative step where humans can excel. It will force you to answer questions: how should the interface be? What kind of test are you writing and therefore what makes sense to include in the scope of this test? What are the sad path tests? Seriously: you do the groundwork thinking to consider these , again with the considerations of which test you’re writing. Write the first test yourself without the assistance of the AI. Go through a single TDD cycle, get the test passing. Ask the AI to make suggestions for refactoring. Get the test harness to look like how you want and are happy with. Give the AI to begin with one other test scenario you want it to write, get it to refer to your initial test. Work with the results until you’re happy. Now feed it the other scenarios and see that you’re happy. Be especially mindful of sad path test scenarios. It may find strange ways to mock for example. It’s worth writing this yourself first. Even if you go with AI suggestions, thinking through how & why it’s chosen an approach is a worthwhile exercise.
+### You write at least the first test and then prompt AI follow that model
+The engineer thinks about the happy path scenario and writes the first failing test. Then following the TDD cycle writes the production code to get the test to pass perhaps also using AI. The engineer then makes a list of any remaining happy path tests and prompts the AI to write them based off of the initial test.
+This process is then repeated for the sad path scenarios. Why bother to do this when we have AI? I've found this is an important step because it maintains the value of the TDD process which is sketching out how the world should be in your test file. Even without the code existing, this is the important creative step that will force you to answer and understand fundamental questions about the code: how should the public interface be.
+Get the test harness to look like how you want and are happy with. Give the AI to begin with one other test scenario you want it to write, get it to refer to your initial test. Work with the results until you’re happy. Now feed it the other scenarios and see that you’re happy. Be especially mindful of sad path test scenarios. It may find strange ways to mock for example. It’s worth writing this yourself first.
 
-Even if you end up with code that’s exactly the same as what an AI would have written, this process is still valuable. Rather than getting the AI to write it and not really interrogate the scenarios and testing approach, you can be confident you fully understand the approach. This will have a benefit for when the production code is written as well, because it’s clear in your mind what you’re aiming to achieve.
+I've come to the conclusion that some of how an engineer will use AI with tests depends on what they believe the value of a test is. If you already don’t value TDD, it's likely that using AI will simply reinforce the world view that tests don't add much to the process of writing code and instead are necessary artefacts added at the end for the PR to be approved.
+If you don’t value TDD, probably using AI will just reinforce your view of the world that they don’t add much to the process of writing code and are basically a bit pointless. 
 
-If you don’t value TDD, probably using AI will just reinforce your view of the world that they don’t add much to the process of writing code and are basically a bit pointless. Whilst reviewing PRs you’ll just continue to quickly gloss over the tests.
+In my case I find it valuable to force myself to do the thinking part of writing the first test and sketching out the expected sad path scenarios. Rather than getting the AI to write it and not really interrogate the scenarios and testing approach, you can be confident you fully understand the approach. This will have a benefit for when the production code is written as well, because it’s clear in your mind what you’re aiming to achieve.
 
-It’s too easy in the age of AI to use it to get things done more quickly. However, in my experience, this has often been a fallacy. Taking the time to understand the problem space is key. That way you can be sure that you can interrogate the AI and call BS when you see it.
+It’s too easy in the age of AI to use it to get things done more quickly. However, everything has a trade off. If we are trading speed for understanding and subtle bugs then I think that speed has the potential to be dangerous.
+Taking the time to understand the problem space is key and truly understand the code, even if it's partially written by AI is really important.
+
 
 ---
