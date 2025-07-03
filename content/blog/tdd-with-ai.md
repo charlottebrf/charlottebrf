@@ -44,7 +44,7 @@ Ultimately how an engineer uses AI with tests will depend on what they believe t
 In my case I do find it valuable to do the thinking part of writing the test first rather than getting AI to write it. I've found if I don't do that then I am less likely to interrogate the scenarios and testing approach in depth and more likely to just accept what the AI gives me.
 I think this has a benefit for when the production code is written as well, because it’s clearer in my mind what I'm aiming to achieve to make sure I'm thinking critically even if using AI as a productivity aid.
 
-I've found it's too easy in the age of AI to use it to get things done more quickly at the expense of depth of understanding. However, everything has a trade-off and nothing is for free AI included. If we are trading speed for understanding then I think that speed has the potential to be dangerous for the long term.
+I've found it's too easy to use AI to get things done more quickly at the expense of depth of understanding. However, everything has a trade-off and nothing is for free AI included. If we are trading speed for understanding then I think that speed has the potential to be dangerous for the long term.
 Taking the time to understand the problem space and truly understand the code remains very important, if not more important in the age of AI.
 
 ---
