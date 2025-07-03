@@ -4,7 +4,7 @@ A personal portfolio website built with Go, featuring a blog with markdown suppo
 This site replaces a [previous version written using 11ty](https://github.com/charlottebrf/charlottebrf.dev).
 ## 🌐 Live Site
 
-**Production:** [charlotte-go-website.fly.dev](https://charlotte-go-website.fly.dev)
+**Production:** [charlottebrf.dev](https://charlottebrf.dev)
 
 ## ✨ Features
 
@@ -112,7 +112,7 @@ There is a custom domain setup.
 
 ## 📊 Analytics
 
-Analytics are provided by Plausible (privacy-focused, GDPR compliant). The tracking script is included in all page templates with the domain `charlotte-go-website.fly.dev`.
+Analytics are provided by Plausible (privacy-focused, GDPR compliant). The tracking script is included in all page templates with the domain `charlottebrf.dev`.
 
 ## 🔧 Environment Variables
 
