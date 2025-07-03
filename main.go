@@ -214,17 +214,28 @@ func (s *Server) contactHandler(w http.ResponseWriter, r *http.Request) {
 	s.templates.ExecuteTemplate(w, "contact.html", data)
 }
 
+func securityHeaders(next http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Security-Policy", "default-src 'self'; script-src 'self' plausible.io; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' data:")
+		w.Header().Set("X-Frame-Options", "DENY")
+		w.Header().Set("X-Content-Type-Options", "nosniff")
+		w.Header().Set("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+		w.Header().Set("Referrer-Policy", "strict-origin-when-cross-origin")
+		next(w, r)
+	}
+}
+
 func main() {
 	server := &Server{}
 	server.loadTemplates()
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-	http.HandleFunc("/blog/", server.blogPostHandler)
-	http.HandleFunc("/blog", server.blogHandler)
-	http.HandleFunc("/", server.homeHandler)
-	http.HandleFunc("/experience", server.experienceHandler)
-	http.HandleFunc("/contact", server.contactHandler)
+	http.HandleFunc("/blog/", securityHeaders(server.blogPostHandler))
+	http.HandleFunc("/blog", securityHeaders(server.blogHandler))
+	http.HandleFunc("/", securityHeaders(server.homeHandler))
+	http.HandleFunc("/experience", securityHeaders(server.experienceHandler))
+	http.HandleFunc("/contact", securityHeaders(server.contactHandler))
 
 	port := os.Getenv("PORT")
 	if port == "" {
